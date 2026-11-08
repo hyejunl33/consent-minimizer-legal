@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Don't Track Me Privacy Policy</title>
+    <script src="privacy-lang.js"></script>
+    <style>
+      @font-face {
+        font-family: "Gaegu";
+        src: url("fonts/Gaegu-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Gaegu";
+        src: url("fonts/Gaegu-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-display: swap;
+      }
+      :root {
+        --paper: #fbf4d8;
+        --paper-raised: #fffdf4;
+        --ink: #1e2a44;
+        --ink-soft: #5d6475;
+        --margin: #d9564a;
+        --highlight: #f2d65c;
+        --rule: rgb(30 42 68 / 16%);
+      }
+      * { box-sizing: border-box; }
+      html { background: var(--paper); }
+      body {
+        font-family: "Gaegu", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        font-size: 17px;
+        line-height: 1.7;
+        max-width: 760px;
+        margin: 40px auto;
+        padding: 28px 28px 40px 56px;
+        color: var(--ink);
+        background-color: var(--paper);
+        background-image:
+          linear-gradient(90deg, transparent 0 44px, var(--margin) 44px 46px, transparent 46px),
+          repeating-linear-gradient(to bottom, transparent 0 27px, var(--rule) 27px 28px);
+      }
+      h1 {
+        margin: 0 0 6px;
+        font-size: 2rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        display: inline-block;
+        border-bottom: 3px solid var(--margin);
+        transform: rotate(-0.6deg);
+      }
+      h2 {
+        margin-top: 2.2rem;
+        font-size: 1.35rem;
+        line-height: 1.2;
+      }
+      p, li { max-width: 66ch; }
+      a { color: var(--ink); text-decoration-color: var(--margin); text-underline-offset: 3px; }
+      code {
+        padding: 0 4px;
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        background: var(--paper-raised);
+        font-size: 0.9em;
+      }
+      .meta { color: var(--ink-soft); font-size: 0.9rem; }
+      .note {
+        padding: 10px 12px;
+        border-left: 4px solid var(--highlight);
+        background: var(--paper-raised);
+      }
+      .lang-switch {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 0 0 14px;
+        font-size: 0.95rem;
+      }
+      .lang-switch a {
+        padding-bottom: 2px;
+        border-bottom: 2px solid var(--rule);
+        text-decoration: none;
+      }
+      .lang-switch a[aria-current="page"] {
+        border-bottom-color: var(--margin);
+      }
+      .lang-switch span { color: var(--ink-soft); }
+      @media (max-width: 640px) {
+        body { margin: 0; padding: 22px 18px 32px 40px; font-size: 16px; }
+        h1 { font-size: 1.6rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav class="lang-switch" aria-label="Language / 언어">
+      <a href="privacy.html?lang=ko" hreflang="ko" lang="ko">한국어</a>
+      <span aria-hidden="true">·</span>
+      <a href="privacy-en.html?lang=en" hreflang="en" lang="en" aria-current="page">English</a>
+    </nav>
+
+    <h1>Don't Track Me Privacy Policy</h1>
+    <p class="meta">Effective: 2026-11-08 · Version 0.2.0 · Korean name: 내정보 가져가지 말라고</p>
+
+    <p>
+      Don't Track Me (the "extension") rejects cookie banners and helps you keep only the
+      required consents on signup forms. This policy explains what the extension handles,
+      where it stores it, and how you can delete it.
+    </p>
+
+    <h2>1. Summary</h2>
+    <ul>
+      <li>No account, no login.</li>
+      <li>No developer server, no third-party server, no external communication.</li>
+      <li>Page content, typed input, and personal data are never uploaded.</li>
+      <li>The extension does not read or modify browser cookies. It does not request the <code>cookies</code> permission.</li>
+      <li>All records stay in your browser (<code>chrome.storage.local</code>).</li>
+      <li>Use "Delete all records" in the popup to erase them at any time. Uninstalling also deletes them.</li>
+    </ul>
+
+    <h2>2. What the extension does</h2>
+    <p>On pages you visit, the extension looks for cookie banners and signup consent controls and acts as follows.</p>
+    <ul>
+      <li>Clicks a reject/necessary-only button only when it is clearly identified.</li>
+      <li>Checks <strong>required</strong> signup consents and unchecks <strong>optional</strong> consents.</li>
+      <li>Does not touch the master "agree to all" control.</li>
+      <li>Never clicks "accept all" or "agree to all".</li>
+      <li>Never submits a form.</li>
+      <li>Does nothing when confidence is low.</li>
+      <li>Stops both modules during login, payment, checkout, and identity-verification flows.</li>
+    </ul>
+    <p class="note">
+      Checking required consents is a convenience for the signup flow. You remain responsible for
+      reviewing the terms, deciding whether to sign up, and giving final consent.
+    </p>
+
+    <h2>3. Data stored</h2>
+    <ul>
+      <li><strong>Site host</strong> (for example <code>example.com</code>; no path or query string)</li>
+      <li><strong>Action type</strong> (cookie rejected, required checked, optional unchecked, skipped, failed) and <strong>timestamp</strong></li>
+      <li><strong>Control label</strong> shown by the page (for example "Marketing consent")</li>
+      <li><strong>Classification</strong>: consent category, confidence, and source (rule or heuristic)</li>
+      <li><strong>Per-site settings</strong>: whether the site is paused, and the last cookie-processing date</li>
+      <li><strong>Aggregate counters</strong> derived from those records</li>
+      <li><strong>Install time</strong></li>
+    </ul>
+    <p>
+      This data does not include account identifiers, email addresses, names, cookie values, or typed input.
+      A control label is copied from the page, so in rare cases a label itself could contain personal data.
+    </p>
+
+    <h2>4. Retention</h2>
+    <ul>
+      <li>Recent activity keeps the latest <strong>500</strong> records; older records are removed automatically.</li>
+      <li>Per-site settings and aggregate counters remain until you delete all records or uninstall the extension.</li>
+    </ul>
+
+    <h2>5. Deletion</h2>
+    <p>
+      Use <strong>Delete all records</strong> in the popup. A confirmation appears, and data is deleted only after you choose <strong>Yes</strong>.
+    </p>
+    <ul>
+      <li>Deleted: activity records, aggregate counters, per-site settings (pause and daily guard), and install time.</li>
+      <li>The deletion clears the extension's storage in one operation; it does not leave a partial copy.</li>
+      <li>The extension keeps working after deletion and will store new activity.</li>
+    </ul>
+    <p>Uninstalling the extension also deletes the same data from your browser.</p>
+
+    <h2>6. Third parties and external transmission</h2>
+    <p>
+      Stored data is not provided, sold, or shared with third parties. The extension contains no
+      analytics, advertising, or remote-configuration tooling and does not communicate with external
+      servers. The bundled <code>@duckduckgo/autoconsent</code> library runs only inside the page and
+      does not send data out. See THIRD_PARTY_NOTICES.md for details.
+    </p>
+
+    <h2>7. Permissions</h2>
+    <ul>
+      <li><code>storage</code>: store the records and settings above in <code>chrome.storage.local</code>.</li>
+      <li><code>&lt;all_urls&gt;</code> (host permission): find and handle cookie banners and signup consents on any site you visit. Page content is never sent out.</li>
+    </ul>
+
+    <h2>8. Children</h2>
+    <p>The extension is not directed to children and does not collect information about children.</p>
+
+    <h2>9. Changes</h2>
+    <p>
+      If this policy changes, we update this page and the effective date first. Material changes to
+      data handling are announced in the extension update notes.
+    </p>
+
+    <h2>10. Contact</h2>
+    <p>Contact: <a href="https://github.com/hyejunl33/consent-minimizer-legal/issues">GitHub issues</a></p>
+
+  </body>
+</html>

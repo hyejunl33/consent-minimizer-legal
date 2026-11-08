@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Don't Track Me — Privacy policy</title>
+    <script>
+      // Send Korean browsers to Korean, everyone else to English.
+      (function () {
+        var stored = null;
+        try { stored = localStorage.getItem('dtm-lang'); } catch (e) {}
+        var langs = navigator.languages && navigator.languages.length
+          ? navigator.languages
+          : [navigator.language || ''];
+        var prefersKo = langs.some(function (l) {
+          return String(l).toLowerCase().indexOf('ko') === 0;
+        });
+        var preferred = stored === 'ko' || stored === 'en' ? stored : (prefersKo ? 'ko' : 'en');
+        location.replace(preferred === 'ko' ? 'privacy.html' : 'privacy-en.html');
+      })();
+    </script>
+    <style>
+      @font-face {
+        font-family: Gaegu;
+        font-weight: 400;
+        font-display: swap;
+        src: url("fonts/Gaegu-Regular.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: Gaegu;
+        font-weight: 700;
+        font-display: swap;
+        src: url("fonts/Gaegu-Bold.ttf") format("truetype");
+      }
+      body {
+        max-width: 620px;
+        margin: 0 auto;
+        padding: 64px 24px;
+        background: #fbf4d8;
+        color: #1e2a44;
+        font: 700 20px/1.6 Gaegu, "Apple SD Gothic Neo", sans-serif;
+      }
+      h1 { font-size: 34px; line-height: 1.2; }
+      a {
+        display: block;
+        margin: 14px 0;
+        padding: 16px 20px;
+        border: 2px solid #1e2a44;
+        border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+        background: #fffdf4;
+        color: #1e2a44;
+        text-decoration: none;
+      }
+      a small { display: block; color: #444b5e; font-size: 15px; font-weight: 400; }
+      p.note { color: #444b5e; font-size: 16px; font-weight: 400; }
+    </style>
+  </head>
+  <body>
+    <h1>Don't Track Me</h1>
+    <p class="note">Privacy policy / 개인정보 처리방침</p>
+    <a href="privacy-en.html">Privacy policy<small>English</small></a>
+    <a href="privacy.html">개인정보 처리방침<small>한국어</small></a>
+  </body>
+</html>
